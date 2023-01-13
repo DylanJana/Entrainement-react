@@ -6,11 +6,15 @@ import Item from './Item';
 function App() {
   // J'initialise mon state
   const [monState, setMonState] = useState(10);
+  // Je crée la fonction liée à mon event click du button change state
+  const modifyState = () => {
+    setMonState(20);
+  }
   return (
     <div className="App">
-      <h1>Hello app react</h1>
-      <Item />
-      {monState}
+      <h1>Hello State : {monState}</h1>
+      <button onClick={modifyState}>Change state</button>
+      <Item number={monState} />
     </div>
   );
 }
