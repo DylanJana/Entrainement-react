@@ -13,8 +13,11 @@ function App() {
 
   return (
     <div className="App">
-      {/* Short circle operator */}
-      {toggle && <h1>Le state est True</h1>}
+      {/* Toggle la classe */}
+      <div className= {toggle ? "box animated" : "box"}></div>
+      {/* Toggle le style inline peut utiliser car lourd */}
+      {/* <div className="box" style={{ backgroundColor: toggle ? "salmon" : "blue" }}>
+      </div> */}
       <button onClick={changeState}>Changer de State</button>
     </div>
   );
