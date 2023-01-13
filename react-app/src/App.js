@@ -13,9 +13,8 @@ function App() {
 
   return (
     <div className="App">
-      {/* Fonction ternaire */}
-      {toggle ? <h1>Le state est True</h1> :
-        <h1>Le state est False</h1>}
+      {/* Short circle operator */}
+      {toggle && <h1>Le state est True</h1>}
       <button onClick={changeState}>Changer de State</button>
     </div>
   );
