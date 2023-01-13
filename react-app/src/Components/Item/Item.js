@@ -6,7 +6,7 @@ function Item() {
     <div>
       <h1 className='titre--xxl'>Hello depuis Item</h1>
       <img 
-        src={"assets/img/chiot.jpg"} 
+        src={process.env.PUBLIC_URL + `assets/img/chiot.jpg`} 
         alt="Image d'un chien" 
       />
       {/* Icône svg d'un chat comme un composant */}
