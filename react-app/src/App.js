@@ -5,21 +5,41 @@ import Item from './Components/Item/Item.js';
 
 function App() {
 
-  const [inputData, setInputData] = useState(10);
+  const [toggle, setToggle] = useState(true);
 
-  const changeInput = (e) => {
-    setInputData(e)
+  const changeState = () => {
+    setToggle(!toggle);
+  }
+// Version 1
+  // if(toggle) {
+  //   return (
+  //     <div className="App">
+  //       <h1>Le state est True</h1>
+  //       <button onClick={changeState}>Changer de State</button>
+  //     </div>
+  //   );
+  // } else if(toggle === false) {
+  //     return (
+  //       <div className="App">
+  //         <h1>Le state est False</h1>
+  //         <button onClick={changeState}>Changer de State</button>
+  //       </div>
+  //     );
+  // }
+
+  // Version 2
+  let toggleContenu;
+
+  if(toggle) {
+    toggleContenu = <h1>Le state est True</h1>
+  } else {
+    toggleContenu = <h1>Le state est False</h1>
   }
 
-  console.log(inputData)
   return (
     <div className="App">
-      <h1>Hello depuis App</h1>
-      <input 
-      type="text"
-      value={inputData}
-      onInput={e => changeInput(e.target.value)}
-      />
+      {toggleContenu}
+      <button onClick={changeState}>Changer de State</button>
     </div>
   );
 }
