@@ -7,14 +7,15 @@ function App() {
   // J'initialise mon state
   const [monState, setMonState] = useState(10);
   // Je crée la fonction liée à mon event click du button change state
-  const modifyState = () => {
-    setMonState(20);
+  // Elle prendra des datas en argument
+  const modifyState = (data) => {
+    // console.log(data);
+    setMonState(data);
   }
   return (
     <div className="App">
       <h1>Hello State : {monState}</h1>
-      <button onClick={modifyState}>Change state</button>
-      <Item number={monState} />
+      <Item func={modifyState} />
     </div>
   );
 }
