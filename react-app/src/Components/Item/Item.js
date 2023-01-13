@@ -1,5 +1,5 @@
 import './item.css';
-import Cat from './happy.svg';
+import { ReactComponent as Cat } from './happy.svg';
 function Item() {
 
   return (
@@ -9,11 +9,8 @@ function Item() {
         src={"assets/img/chiot.jpg"} 
         alt="Image d'un chien" 
       />
-      {/* Icône svg d'un chat */}
-      <img 
-        src={Cat} 
-        alt="Icône de chat" 
-      />
+      {/* Icône svg d'un chat comme un composant */}
+      <Cat />
     </div>
   )
 }
