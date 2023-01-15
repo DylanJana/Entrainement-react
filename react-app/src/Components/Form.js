@@ -1,13 +1,22 @@
 import { useState } from 'react';
+// Import UUID to generate unique ID
+import {v4 as uuidv4} from 'uuid';
 import Item from './Item';
 
 function Form() {
 
   const [dataArr, setDataArr] = useState([
-    {txt: 'Promener le chien'},
-    {txt: "Sport"},
-    {txt: 'Coder avec React'}
+    {txt: 'Promener le chien', id:uuidv4()},
+    {txt: 'Sport', id:uuidv4()},
+    {txt: 'Coder avec React', id:uuidv4()}
   ])
+
+  const deleteElement = id => {
+    const filteredState = dataArr.filter(item => {
+      return item.id !== id;
+    })
+    setDataArr(filteredState);
+  }
   return (
     <div className="m-auto px-4 col-12 col-sm-10 col-lg-6">
 
@@ -23,11 +32,14 @@ function Form() {
 
       <h2>Liste des choses à faire : </h2>
       <ul className="list-group">
-        {dataArr.map((item, index) => {
+        {dataArr.map(item => {
           return (
             <Item
             txt= {item.txt}
-            key= {index} />
+            key= {item.id}
+            id= {item.id}
+            delFunc= {deleteElement} 
+          />
           )
         })}
       </ul>
