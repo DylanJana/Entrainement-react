@@ -3,39 +3,36 @@ import './App.css';
 
 function App() {
 
-  const [dataImg, setDataImg] = useState();
+  const [timer, setTimer] = useState(1);
 
+  // Permet d'exécuter une méthode tous les x temps
+  // Dans ce cas de figure toutes les 1000ms
+  // Cette méthode peut beuguer
+  /*
+  setInterval(() => {
+
+    setTimer(timer + 1);
+  }, 1000)
+  */
+
+
+  // Même travail que setInterval avec useEffect
   useEffect(() => {
-    // Méthode qui permet de faire appel à des API
-    // fetch veut dire, aller chercher
-    fetch('https://api.thecatapi.com/v1/images/search')
-    /* Si l'appel est un succès, je recois 
-    une réponse HTTP*/
-      .then(response => {
-        console.log(response);
-        // Retourne un tableau avec un objet
-        // dedans
-        return response.json();
-      })
-      /* Alors si la requète http est un succès
-      alors donne moi les données */
-      .then(data => {
-        // Dans le premier objet prend url
-        setDataImg(data[0].url);
-      })
-  }, []);
-  
+    const intervalID = setInterval(() => {
+      /*useState fourni un state frais à chaque fois, ce qui permet
+      d'avoir une valeur qui s'incrémente correction, et qui ne 
+      recommence pas à 1 dans ce cas de figure */
+      setTimer(timer => timer + 1);
+    }, 1000)
+
+    return () => {
+      clearInterval(intervalID);
+    }
+  }, [])
+
   return (
     <div className="App">
-      {/*Lorsque j'ai reçu les données dataImg est
-      true dans ce cas affiche moi l'image du chat
-      avec une taill de 500px*/}
-      {dataImg && 
-      <img 
-      src={dataImg} 
-      alt='cat image'
-      style={{width: '500px'}} 
-      />}
+      <h1>{timer}</h1>
     </div>
   );
 }
