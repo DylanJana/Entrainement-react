@@ -20,8 +20,6 @@ function Timer() {
   return (
     <>
       <h1>{timer}</h1>
-      <h1>{timer}</h1>
-      <h1>{timer}</h1>
     </>
   );
 }
