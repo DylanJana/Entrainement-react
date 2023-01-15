@@ -1,38 +1,20 @@
 import { useState, useEffect } from 'react';
+// Import Timer
+import Timer from './Timer';
 import './App.css';
 
 function App() {
 
-  const [timer, setTimer] = useState(1);
+  const[toggle, setToggle] = useState(true);
 
-  // Permet d'exécuter une méthode tous les x temps
-  // Dans ce cas de figure toutes les 1000ms
-  // Cette méthode peut beuguer
-  /*
-  setInterval(() => {
-
-    setTimer(timer + 1);
-  }, 1000)
-  */
-
-
-  // Même travail que setInterval avec useEffect
-  useEffect(() => {
-    const intervalID = setInterval(() => {
-      /*useState fourni un state frais à chaque fois, ce qui permet
-      d'avoir une valeur qui s'incrémente correction, et qui ne 
-      recommence pas à 1 dans ce cas de figure */
-      setTimer(timer => timer + 1);
-    }, 1000)
-
-    return () => {
-      clearInterval(intervalID);
-    }
-  }, [])
+  const toggleFunc = () => {
+    setToggle(!toggle);
+  }
 
   return (
     <div className="App">
-      <h1>{timer}</h1>
+      <button onClick={toggleFunc}>Toggle</button>
+      {toggle && <Timer />}
     </div>
   );
 }
