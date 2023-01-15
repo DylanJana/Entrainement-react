@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+import { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
+
+  const [dataComponent, setDataComponent] = useState(1);
+
+  // useEffect
+  useEffect(() => {
+    console.log("Premier affichage")
+  }, [])
+
+  const changeState = () => {
+    setDataComponent(dataComponent + 1)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+      <h1>Le state est {dataComponent}</h1>
+      <button onClick={() => changeState()}>Change State</button>
+      </div>
     </div>
   );
 }
