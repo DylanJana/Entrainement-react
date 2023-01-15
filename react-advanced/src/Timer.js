@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 
 function Timer() {
   const [timer, setTimer] = useState(1);
@@ -13,15 +13,16 @@ function Timer() {
     }, 1000)
 
     return () => {
-      alert('COMPOSANT DÉTRUIT !');
       clearInterval(intervalID);
     }
   }, [])
 
   return (
-    <div className="App">
+    <>
       <h1>{timer}</h1>
-    </div>
+      <h1>{timer}</h1>
+      <h1>{timer}</h1>
+    </>
   );
 }
 
