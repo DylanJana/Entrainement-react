@@ -8,7 +8,7 @@ function App() {
   // useEffect
   useEffect(() => {
     console.log("Premier affichage")
-  }, [])
+  }, [dataComponent])
 
   const changeState = () => {
     setDataComponent(dataComponent + 1)
