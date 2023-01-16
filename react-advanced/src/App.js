@@ -21,6 +21,14 @@ function App() {
         <h1>Titre de mon article 1</h1>
         <p>Lorem ipsum dolor sit amet.</p>
       </Content>
+      <Content>
+        <h1>Titre de mon article 2</h1>
+        <p>Lorem ipsum dolor sit.</p>
+      </Content>
+      <Content>
+        <h1>Titre de mon article 3</h1>
+        <p>Lorem ipsum dolor.</p>
+      </Content>
       <button onClick={toggleFunc}>Toggle</button>
     </div>
   );
