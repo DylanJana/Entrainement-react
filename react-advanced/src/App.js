@@ -11,7 +11,12 @@ function App() {
   const maRef = useRef([]);
 
   useEffect(() => {
-    console.log(maRef)
+    // Lorsque je vais redimensionner ma fenête
+    window.addEventListener('resize', actionResize);
+
+    function actionResize() {
+      console.log("Resized !!!")
+    }
   }, [])
 
   const toggleFunc = () => {
