@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import './App.css';
+// Import component
+import Content from './Content';
 
 
 function App() {
@@ -15,7 +17,10 @@ function App() {
 
   return (
     <div className="App">
-      <h1>{toggle}</h1>
+      <Content>
+        <h1>Titre de mon article 1</h1>
+        <p>Lorem ipsum dolor sit amet.</p>
+      </Content>
       <button onClick={toggleFunc}>Toggle</button>
     </div>
   );
