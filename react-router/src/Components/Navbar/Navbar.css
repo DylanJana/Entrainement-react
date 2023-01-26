@@ -1,0 +1,12 @@
+nav {
+  margin: 10px 0;
+}
+
+nav a {
+  margin: 10px;
+  font-weight: 18;
+}
+
+.active-link {
+  background: lightblue;
+}
