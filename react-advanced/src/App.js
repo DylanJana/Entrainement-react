@@ -1,21 +1,11 @@
-import { useState, useMemo, useCallback } from 'react';
 import './App.css';
-// Import my perso hook
-import useDimension from './useDimension';
+import Modal from './Components/Modal/Modal';
 
 function App() {
-  const browserWidth = useDimension();
-  console.log(browserWidth);
-
-  if(browserWidth > 772) {
-    console.log('Grand écran')
-  } else {
-    console.log('Petit écran')
-  }
-
   return (
-    <div className="App">
-    </div>
+    <>
+      <Modal />
+    </>
   );
 }
 
