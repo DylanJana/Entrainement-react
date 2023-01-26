@@ -28,6 +28,7 @@
   font-size: 18px;
   opacity: 0;
   background-color: rgb(245,245,245);
+  height: 0;
   transition: 
   opacity 0.4s ease-in-out,
   height 0.4s 0.4s ease-in-out;
@@ -35,6 +36,7 @@
 
 .animated {
   opacity: 1;
+  height: auto;
   transition: 
   height 0.4s ease-in-out,
   opacity 0.4s 0.4s ease-in-out;

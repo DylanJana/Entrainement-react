@@ -6,19 +6,19 @@ function Accordion() {
 
   const [toggle, setToggle] = useState(false);
   // State height of element
-  const [heightEl, setHeightEl] = useState();
+  // const [heightEl, setHeightEl] = useState();
 
   const toggleState = () => {
     setToggle(!toggle);
   }
 
   // Take accordion__content as reference
-  const refHeight= useRef()
+  // const refHeight= useRef()
 
-  useEffect(() => {
-    // Get height of my accordion__content
-    setHeightEl(`${refHeight.current.scrollHeight}px`)
-  }, [])
+  // useEffect(() => {
+  //   // Get height of my accordion__content
+  //   setHeightEl(`${refHeight.current.scrollHeight}px`)
+  // }, [])
 
 
   return (
@@ -31,9 +31,8 @@ function Accordion() {
       </div>
 
       <div 
-      ref={refHeight} 
       className={toggle ? 'accordion__content animated' : 'accordion__content'}
-      style={{height: toggle ? `${heightEl}` : "0px"}}>
+      >
         <p
         aria-hidden={toggle ? "true" : "false"}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque adipisci provident obcaecati deleniti error id minus rem culpa est tempore. Omnis laudantium et natus repudiandae tenetur commodi nobis quia sunt.
