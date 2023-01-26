@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import './App.css';
 // Import component
 import Content from './Content';
@@ -15,20 +15,17 @@ function App() {
     setToggle(newArr);
   }
 
+  const array = useMemo(() => {
+    return [1,2,3,4]
+  }, [])
+
+  const foo = useCallback(() => {
+    console.log('Click');
+  }, []);
+
   return (
     <div className="App">
-      <Content>
-        <h1>Titre de mon article 1</h1>
-        <p>Lorem ipsum dolor sit amet.</p>
-      </Content>
-      <Content>
-        <h1>Titre de mon article 2</h1>
-        <p>Lorem ipsum dolor sit.</p>
-      </Content>
-      <Content>
-        <h1>Titre de mon article 3</h1>
-        <p>Lorem ipsum dolor.</p>
-      </Content>
+      <Content num={array} foo={foo}/>
       <button onClick={toggleFunc}>Toggle</button>
     </div>
   );
