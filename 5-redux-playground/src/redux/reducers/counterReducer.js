@@ -1,6 +1,6 @@
 // Mon state initial
 const INITIAL_STATE = {
-  count: 0
+  count: 50
 }
 
 // Le premier argument, le state est égak à INITIAL_STATE de base

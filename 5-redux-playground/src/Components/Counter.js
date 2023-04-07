@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {useSelector, useDispatch} from 'react-redux';
+import AddCartReducer from '../redux/reducers/addCartReducer';
 
 export default function Counter() {
-
-  // Je récupérer dans mon INITIAL_STATE la propriété count
-  const count = useSelector(state => state.count)
+  //Creation du state
+  const [cartData, setCartData] = useState(0);
+  // Je vais récupérer les INITIAL_STATE de chaque reducer
+  const {cart, count} = useSelector(state => ({
+    // J'initialise la constante cart avec le state de AddCartReducer
+    ...state.AddCartReducer,
+    //J'initialise la constante count avec le state de CounterReducer
+    ...state.CounterReducer
+  }))
 
   // J'instancie useDispatch pour le réutiliser ensuite
   const dispatch = useDispatch();
@@ -22,12 +29,32 @@ export default function Counter() {
     })
   }
 
+  // addToCart
+  const addToCartFunc = () => {
+    dispatch({
+      type: "ADDTOCART",
+      // Les données que je veux passer à mon action
+      payload: cartData
+    })
+  }
+
   return (
     <div>
-      <h1>Les données : {count}</h1>
+      <h1>Votre panier : {cart} {count}</h1>
       {/* Je crée mes boutons d'incrémentation */}
-      <button onClick={decrFunc}>-1</button>
-      <button onClick={incrFunc}>+1</button>
+      {/* <button onClick={decrFunc}>-1</button>
+      <button onClick={incrFunc}>+1</button> */}
+      <input 
+      value={cartData}
+      // Quand j'écris à l'intérieur
+      onInput={e => setCartData(e.target.value)}
+      type="number" />
+      <br />
+      <button
+        onClick={addToCartFunc}
+      >
+        Ajouter au panier
+      </button>
     </div>
   )
 }
