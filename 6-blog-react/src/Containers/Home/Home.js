@@ -9,7 +9,7 @@ export default function Home() {
       <div className="container-cards">
         <Card>
           <h2>
-            Hello card
+            Hello
           </h2>
         </Card>
       </div>
